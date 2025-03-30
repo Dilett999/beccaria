@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesare Beccaria: Vita, Opere e "Dei delitti e delle pene"</title>
+    <style>
+        /* Stili generali */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        header {
+            background-color: #1a5276;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        nav {
+            background-color: #2980b9;
+            padding: 1rem;
+            border-radius: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #3498db;
+        }
+        
+        h1, h2, h3 {
+            color: #1a5276;
+        }
+        
+        .section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 5px;
+        }
+        
+        .img-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .quote {
+            font-style: italic;
+            background-color: #f8f9fa;
+            border-left: 4px solid #1a5276;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box {
+            background-color: #e8f4fc;
+            border: 1px solid #bde0fe;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #1a5276;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #1a5276;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #1a5276;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #1a5276;
+            color: white;
+            border-radius: 0 0 10px 10px;
+        }
+        
+        /* Stili per attività interattive */
+        .activity {
+            background-color: #f0f8ff;
+            border: 2px dashed #4682b4;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .activity h3 {
+            color: #4682b4;
+        }
+        
+        /* Pulsante per cambio pagina */
+        .page-btn {
+            display: none;
+        }
+        
+        .page-content {
+            display: none;
+        }
+        
+        .active-page {
+            display: block;
+        }
+        
+        .btn {
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #3498db;
+        }
+        
+        /* Stili responsive */
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin-bottom: 10px;
+            }
+            
+            .timeline::after {
+                left: 32px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item::after {
+                left: 22px;
+            }
+            
+            .left::after, .right::after {
+                left: 22px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cesare Beccaria</h1>
+            <p>Illuminista, filosofo e giurista italiano</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('vita')">Vita</a></li>
+                <li><a href="#" onclick="showPage('opere')">Opere</a></li>
+                <li><a href="#" onclick="showPage('delitti-pene')">Dei delitti e delle pene</a></li>
+                <li><a href="#" onclick="showPage('attivita')">Attività</a></li>
+            </ul>
+        </nav>
+        
+        <!-- PAGINA HOME -->
+        <div id="home" class="page-content active-page">
+            <div class="section">
+                <h2>Chi era Cesare Beccaria?</h2>
+                <div class="img-container">
+                    <img src="/api/placeholder/400/300" alt="Ritratto di Cesare Beccaria">
+                    <p class="caption">Ritratto di Cesare Beccaria (1738-1794)</p>
+                </div>
+                <p>Ciao ragazzi! Oggi conosceremo <strong>Cesare Beccaria</strong>, un personaggio molto importante della storia italiana del '700. Non era un supereroe con i poteri magici, ma il suo superpotere era il pensiero! Con le sue idee rivoluzionarie, Beccaria ha cambiato per sempre il modo in cui pensiamo alla giustizia.</p>
+                
+                <div class="highlight-box">
+                    <h3>Lo sapevi che...?</h3>
+                    <p>Prima di Beccaria, in Europa si usava la tortura per far confessare i sospettati e la pena di morte era comunissima! Le sue idee hanno contribuito a cambiare queste terribili pratiche.</p>
+                </div>
+                
+                <p>Cesare Beccaria era un nobile milanese che visse nel periodo dell'Illuminismo, un movimento culturale che voleva "illuminare" l'Europa con la luce della ragione e combattere l'ignoranza. Il suo libro più famoso, "<em>Dei delitti e delle pene</em>", pubblicato nel 1764, propose idee rivoluzionarie sul sistema della giustizia penale che ancora oggi, dopo più di 250 anni, influenzano le nostre leggi!</p>
+                
+                <p>In queste pagine esploreremo insieme:</p>
+                <ul>
+                    <li>La vita di Beccaria, dall'infanzia agli studi fino ai suoi ultimi anni</li>
+                    <li>Le sue opere più importanti</li>
+                    <li>Un approfondimento su "Dei delitti e delle pene"</li>
+                    <li>L'importanza delle sue idee nel mondo moderno</li>
+                </ul>
+                
+                <div class="quote">
+                    "È meglio prevenire i delitti che punirli." - Cesare Beccaria
+                </div>
+                
+                <p>Pronti a scoprire perché Cesare Beccaria è ancora oggi considerato il padre del diritto penale moderno? Iniziamo questo viaggio nel tempo cliccando sulle diverse sezioni!</p>
+            </div>
+        </div>
+        
+        <!-- PAGINA VITA -->
+        <div id="vita" class="page-content">
+            <div class="section">
+                <h2>La vita di Cesare Beccaria</h2>
+                <div class="img-container">
+                    <img src="/api/placeholder/400/300" alt="Milano nel Settecento">
+                    <p class="caption">Milano nel XVIII secolo, città natale di Beccaria</p>
+                </div>
+                
+                <h3>I primi anni e l'educazione</h3>
+                <p>Cesare Beccaria nacque a Milano il 15 marzo 1738 in una famiglia nobile. Il suo nome completo era Cesare Bonesana, marchese di Beccaria. Come tutti i ragazzi di famiglia aristocratica dell'epoca, ricevette un'educazione molto rigorosa, prima presso il collegio dei Gesuiti a Parma e poi all'Università di Pavia, dove studiò legge e si laureò in giurisprudenza nel 1758.</p>
+                
+                <div class="highlight-box">
+                    <h3>Curiosità</h3>
+                    <p>Da giovane, Beccaria era molto timido! Quando in seguito divenne famoso e fu invitato a Parigi, nonostante l'onore, tornò rapidamente a Milano perché si sentiva a disagio tra i celebri intellettuali francesi.</p>
+                </div>
+                
+                <h3>L'Accademia dei Pugni e l'amicizia con i fratelli Verri</h3>
+                <p>Un momento fondamentale nella vita di Beccaria fu l'incontro con i fratelli Pietro e Alessandro Verri, due intellettuali illuministi milanesi. Insieme ad altri giovani formarono l'<strong>Accademia dei Pugni</strong>, un gruppo di discussione dove si parlava di filosofia, economia, politica e riforme sociali. Il nome curioso, "dei Pugni", deriva dal fatto che durante le loro animate discussioni, talvolta, arrivavano quasi alle mani!</p>
+                
+                <p>Nel salotto dell'Accademia dei Pugni nacque anche la rivista "<em>Il Caffè</em>", ispirata ai caffè come luoghi di discussione e diffusione di idee. Qui Beccaria pubblicò i suoi primi scritti.</p>
+                
+                <div class="img-container">
+                    <img src="/api/placeholder/400/250" alt="Illustrazione dell'Accademia dei Pugni">
+                    <p class="caption">Rappresentazione di un incontro dell'Accademia dei Pugni</p>
+                </div>
+                
+                <h3>La famiglia e gli ultimi anni</h3>
+                <p>Nel 1761, Beccaria sposò Teresa di Blasco contro il volere dei suoi genitori, che lo diseredarono temporaneamente. Dal matrimonio nacque la figlia Giulia, che in seguito diventerà madre di Alessandro Manzoni, il famoso autore de "I Promessi Sposi".</p>
+                
+                <p>Dopo la pubblicazione di "Dei delitti e delle pene" nel 1764, Beccaria divenne famoso in tutta Europa. Fu invitato a Parigi dagli enciclopedisti francesi, ma come abbiamo visto, la sua timidezza lo fece tornare presto a Milano.</p>
+                
+                <p>Negli ultimi anni della sua vita, dal 1771, lavorò per il governo austriaco della Lombardia, occupandosi di economia e riforme amministrative. Morì a Milano il 28 novembre 1794, all'età di 56 anni.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <p class="timeline-date">1738</p>
+                            <p>Nasce a Milano il 15 marzo</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <p class="timeline-date">1758</p>
+                            <p>Si laurea in giurisprudenza all'Università di Pavia</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <p class="timeline-date">1761</p>
+                            <p>Sposa Teresa di Blasco e viene temporaneamente diseredato</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <p class="timeline-date">1764</p>
+                            <p>Pubblica anonimamente "Dei delitti e delle pene"</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <p class="timeline-date">1768</p>
+                            <p>Diventa professore di economia politica</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <p class="timeline-date">1771</p>
+                            <p>Inizia a lavorare per il governo austriaco</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <p class="timeline-date">1794</p>
+                            <p>Muore a Milano il 28 novembre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PAGINA OPERE -->
+        <div id="opere" class="page-content">
+            <div class="section">
+                <h2>Le opere di Cesare Beccaria</h2>
+                
+                <p>Beccaria non scrisse moltissime opere, ma quelle che ci ha lasciato hanno avuto un impatto enorme sulla società. Ecco le sue opere principali:</p>
+                
+                <div class="img-container">
+                    <img src="/api/placeholder/400/300" alt="Frontespizio dell'opera 'Dei delitti e delle pene'">
+                    <p class="caption">Frontespizio della prima edizione di "Dei delitti e delle pene" (1764)</p>
+                </div>
+                
+                <h3>Dei delitti e delle pene (1764)</h3>
+                <p>È l'opera più famosa e importante di Beccaria, pubblicata inizialmente in forma anonima per evitare problemi con le autorità e la Chiesa. Il libro è un trattato giuridico e filosofico che critica il sistema penale dell'epoca, proponendo riforme innovative basate sulla ragione e sui diritti umani. Leggendo questa opera, vi renderete conto di quanto fossero rivoluzionarie le sue idee: abolizione della tortura, delle pene crudeli e della pena di morte!</p>
+                
+                <div class="highlight-box">
+                    <h3>Lo sapevi che...?</h3>
+                    <p>L'opera fu pubblicata anonimamente perché le idee erano così rivoluzionarie che Beccaria temeva ritorsioni! Solo in seguito, visto il grande successo, ne rivendicò la paternità.</p>
+                </div>
+                
+                <h3>Articoli su "Il Caffè" (1764-1766)</h3>
+                <p>Beccaria scrisse diversi articoli per la rivista "Il Caffè", fondata dai fratelli Verri. I suoi contributi riguardavano vari temi, tra cui l'economia, lo stile letterario e questioni sociali. Un articolo famoso era intitolato "Dei fogli periodici", in cui parlava dell'importanza dei giornali per diffondere la cultura.</p>
+                
+                <div class="img-container">
+                    <img src="/api/placeholder/400/250" alt="Pagina della rivista Il Caffè">
+                    <p class="caption">Una pagina della rivista "Il Caffè"</p>
+                </div>
+                
+                <h3>Elementi di economia pubblica (pubblicati postumi)</h3>
+                <p>Si tratta di un insieme di lezioni di economia che Beccaria tenne come professore. L'opera fu pubblicata dopo la sua morte e tratta di temi economici come il commercio, l'agricoltura, le manifatture e le politiche economiche dello Stato.</p>
+                
+                <h3>Ricerche intorno alla natura dello stile (1770)</h3>
+                <p>In quest'opera Beccaria analizza lo stile letterario e il linguaggio, cercando di capire quali elementi rendano efficace la comunicazione delle idee.</p>
+                
+                <div class="quote">
+                    "Perché ogni pena non sia una violenza di uno o di molti contro un privato cittadino, dev'essere essenzialmente pubblica, pronta, necessaria, la minima delle possibili nelle date circostanze, proporzionata ai delitti, dettata dalle leggi." - Cesare Beccaria
+                </div>
+                
+                <p>L'influenza delle opere di Beccaria è stata enorme. Le sue idee hanno ispirato riforme legali in molti paesi europei e persino negli Stati Uniti. Ad esempio, i Padri Fondatori americani, come Thomas Jefferson, furono influenzati dalle sue teorie sulla giustizia quando scrissero la Costituzione americana.</p>
+            </div>
+        </div>
+        
+        <!-- PAGINA DEI DELITTI E DELLE PENE -->
+        <div id="delitti-pene" class="page-content">
+            <div class="section">
+                <h2>"Dei delitti e delle pene": l'opera rivoluzionaria</h2>
+                
+                <div class="img-container">
+                    <img src="/api/placeholder/400/300" alt="Pagine del libro 'Dei delitti e delle pene'">
+                    <p class="caption">Pagine dall'edizione originale di "Dei delitti e delle pene"</p>
+                </div>
+                
+                <h3>Un libro che ha cambiato la storia</h3>
+                <p>Immaginate di vivere nel 1764: la tortura è una pratica normale, le persone vengono giustiziate in pubblico per piccoli reati, e nessuno si preoccupa davvero dei diritti degli accusati. In questo contesto, Beccaria pubblica "Dei delitti e delle pene" - un libro che sfida apertamente tutto il sistema giudiziario dell'epoca!</p>
+                
+                <div class="highlight-box">
+                    <h3>Contesto storico</h3>
+                    <p>Nel Settecento la giustizia era crudele e arbitraria. I processi erano segreti, gli accusati non conoscevano le accuse, la tortura era usata regolarmente per ottenere confessioni, e le pene erano spesso sproporzionate rispetto ai crimini commessi. Beccaria voleva cambiare tutto questo!</p>
+                </div>
+                
+                <h3>Le idee principali del libro</h3>
+                
+                <h4>1. Contro la tortura</h4>
+                <p>Beccaria argomenta che la tortura è una pratica crudele e inutile. Fa notare che una persona torturata confesserà qualsiasi cosa per far cessare il dolore, anche se innocente!</p>
+                
+                <div class="quote">
+                    "Una crudeltà consacrata dall'uso nella maggior parte delle nazioni è la tortura del reo mentre si forma il processo." - Cesare Beccaria
+                </div>
+                
+                <h4>2. Contro la pena di morte</h4>
+                <p>Una delle posizioni più coraggiose di Beccaria fu l'opposizione alla pena di morte. Egli sosteneva che lo Stato non ha il diritto di togliere la vita ai cittadini e che la minaccia della pena capitale non dissuade efficacemente dal commettere crimini.</p>
+                
+                <h4>3. La proporzionalità delle pene</h4>
+                <p>Beccaria propose che le pene dovessero essere proporzionate alla gravità del reato commesso. Non ha senso, secondo lui, punire allo stesso modo un furto e un omicidio: questo non farebbe che incoraggiare i ladri a diventare assassini!</p>
+                
+                <h4>4. Prevenzione invece di punizione</h4>
+                <p>Secondo Beccaria, lo scopo delle leggi non dovrebbe essere quello di punire, ma di prevenire i crimini. Le leggi dovrebbero essere chiare, comprensibili e conosciute da tutti, in modo che i cittadini sappiano quali comportamenti sono proibiti.</p>
+                
+                <div class="img-container">
+                    <img src="/api/placeholder/400/250" alt="Rappresentazione di un tribunale del '700">
+                    <p class="caption">Un tribunale del XVIII secolo</p>
+                </div>
+                
+                <h4>5. Certezza della pena</h4>
+                <p>Una delle intuizioni più importanti di Beccaria fu che la certezza della punizione è più efficace della sua severità. Se i criminali sanno che verranno sicuramente puniti, anche con pene moderate, saranno più dissuasi dal commettere reati rispetto a quando le pene sono molto severe ma raramente applicate.</p>
+                
+                <h3>L'impatto dell'opera</h3>
+                <p>"Dei delitti e delle pene" ebbe un successo straordinario. Fu tradotto in molte lingue e letto in tutta Europa. Molti sovrani "illuminati" dell'epoca, come Federico II di Prussia, Caterina di Russia e il Granduca di Toscana Pietro Leopoldo, furono influenzati dalle idee di Beccaria e avviarono riforme dei loro sistemi penali.</p>
+                
+                <p>Gli effetti delle teorie di Beccaria si possono vedere ancora oggi nei moderni sistemi giudiziari: il diritto a un processo equo, il divieto di tortura, la proporzionalità delle pene e molti altri principi che oggi consideriamo fondamentali derivano dalle sue idee.</p>
+                
+                <div class="highlight-box">
+                    <h3>Eredità attuale</h3>
+                    <p>L'Articolo 27 della Costituzione italiana, che stabilisce che "Le pene non possono consistere in trattamenti contrari al senso di umanità e devono tendere alla rieducazione del condannato", riflette chiaramente il pensiero di Beccaria!</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PAGINA ATTIVITÀ -->
+        <div id="attivita" class="page-content">
+            <div class="section">
+                <h2>Attività didattiche su Cesare Beccaria</h2>
+                
+                <div class="activity">
+                    <h3>Attività 1: Processo simulato</h3>
+                    <p>Dividetevi in gruppi e simulate un processo del XVIII secolo, prima delle riforme proposte da Beccaria, e poi un processo moderno. Assegnate i ruoli di giudice, accusato, testimoni e avvocati. Notate le differenze e discutete su come sono cambiate le cose grazie alle idee di Beccaria.</p>
+                </div>
+                
+                <div class="activity">
+                    <h3>Attività 2: Confronto tra pene</h3>
+                    <p>Create una tabella di confronto tra le pene previste nel '700 per alcuni reati (ad esempio furto, diffamazione, aggressione) e quelle previste oggi per gli stessi reati. Discutete in classe su come è cambiato l'approccio alla giustizia.</p>
+                </div>
+                
+                <div class="activity">
+                    <h3>Attività 3: Dibattito sulla pena di morte</h3>
+                    <p>Organizzate un dibattito in classe sulla pena di morte. Un gruppo difenderà la posizione di Beccaria contro la pena capitale, mentre l'altro gruppo sosterrà la posizione opposta. Ricordate di usare argomentazioni logiche e rispettose!</p>
+                </div>
+                
+                <div class="activity">
+                    <h3>Attività 4: Crea un fumetto</h3>
+                    <p>Realizza un fumetto che racconti un episodio della vita di Beccaria o che illustri le sue principali idee sul sistema penale. Puoi lavorare da solo o in gruppo!</p>
+                </div>
+                
+                <div class="activity">
+                    <h3>Attività 5: Quiz su Beccaria</h3>
+                    <p>Mettiti alla prova con queste domande:</p>
+                    <ol>
+                        <li>In quale città nacque Cesare Beccaria?</li>
+                        <li>In quale anno fu pubblicato "Dei delitti e delle pene"?</li>
+                        <li>Come si chiamava il gruppo di intellettuali di cui faceva parte Beccaria?</li>
+                        <li>Quali erano le due pratiche penali che Beccaria criticava maggiormente?</li>
+                        <li>Chi era il famoso scrittore nipote di Beccaria?</li>
+                    </ol>
+                </div>
+                
+                <div class="img-container">
+                    <img src="/api/placeholder/400/250" alt="Studenti che partecipano a un dibattito">
+                    <p class="caption">Un dibattito in classe sui temi della giustizia</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>Spunti per ricerche</h3>
+                    <p>Se vuoi approfondire l'argomento, ecco alcuni spunti per ricerche personali:</p>
+                    <ul>
+                        <li>Come erano le carceri nel XVIII secolo e come sono oggi?</li>
+                        <li>Quali paesi hanno abolito la pena di morte grazie alle idee di Beccaria?</li>
+                        <li>Come funzionava l'Illuminismo in Italia rispetto alla Francia?</li>
+                        <li>Quali altri pensatori illuministi furono importanti per i diritti umani?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Progetto didattico su Cesare Beccaria per studenti di seconda media</p>
+            <p>&copy; 2025 - Tutti i diritti riservati</p>
+        </footer>
+    </div>
+    
+    <script>
+        function showPage(pageId) {
+            // Nascondi tutte le pagine
+            const pages = document.getElementsByClassName('page-content');
+            for (let i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('active-page');
+            }
+            
+            // Mostra la pagina selezionata
+            document.getElementById(pageId).classList.add('active-page');
+        }
+    </script>
+</body>
+</html>
